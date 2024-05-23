@@ -1,6 +1,6 @@
 {
   "name": "@mypandora/element-select",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "一个基于 element-ui 的下拉框单选按钮组组件",
   "keywords": [
     "vue",
