@@ -181,6 +181,7 @@ export default {
       type: Boolean,
       default: true,
     },
+    formatter: Function,
   },
 
   data() {

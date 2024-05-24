@@ -10,9 +10,11 @@
   >
     <slot>
       <div style="display: flex; justify-content: space-between; align-items: center">
-        <label style="width: 40px; text-align: right; margin-right: 10px">{{ optionItem.name }}</label>
+        <label>{{ optionItem[optionItemName] }}</label>
         <el-radio-group v-model="radio" :disabled="optionItem.disabled">
-          <el-radio v-for="item in optionItem.status" :key="item.code" :label="item.code">{{ item.name }}</el-radio>
+          <el-radio v-for="item in optionItem[radioGroupKey]" :key="item[radioKey]" :label="item[radioValue]">
+            {{ item[radioKey] }}
+          </el-radio>
         </el-radio-group>
       </div>
     </slot>
@@ -37,6 +39,22 @@ export default {
       type: Object,
       default: () => ({}),
     },
+    optionItemName: {
+      type: String,
+      default: 'name',
+    },
+    radioGroupKey: {
+      type: String,
+      default: 'groups',
+    },
+    radioKey: {
+      type: String,
+      default: 'label',
+    },
+    radioValue: {
+      type: String,
+      default: 'value',
+    },
     disabled: {
       type: Boolean,
       default: false,
@@ -56,20 +74,25 @@ export default {
 
   computed: {
     currentLabel() {
-      const level = getValueByPath(this.optionItem, 'name');
-      const status = getValueByPath(this.optionItem, `status`).find((item) => item.code === this.radio)?.name;
-      return level + status;
+      if (this.select.formatter) {
+        return this.select.formatter(this.optionItem);
+      }
+      const level = getValueByPath(this.optionItem, this.optionItemName);
+      const status = getValueByPath(this.optionItem, this.radioGroupKey).find(
+        (item) => item[this.radioValue] === this.radio,
+      )?.[this.radioKey];
+      return `${level}-${status}`;
     },
     itemSelected() {
       return this.contains(this.select.value, this.value);
     },
     level() {
-      return this.optionItem.level;
+      return this.optionItem[this.select.valueKey];
     },
     value() {
       const radio = this.radio;
       if (radio != null) {
-        return { level: this.level, status: radio };
+        return { [this.select.valueKey]: this.level, [this.radioGroupKey]: radio };
       }
       return null;
     },

@@ -2,19 +2,33 @@
   <div>
     <h1>基础</h1>
 
-    <my-select v-model="value" collapseTags placeholder="Select an option" valueKey="level">
-      <my-option v-for="item in levels" :key="item.name" :optionItem="item"> </my-option>
+    <my-select
+      v-model="value"
+      collapseTags
+      placeholder="Select an option"
+      valueKey="level"
+      :formatter="handleFormatter"
+    >
+      <my-option
+        v-for="item in levels"
+        :key="item.label"
+        :optionItem="item"
+        optionItemName="name22"
+        radioGroupKey="groups"
+        radioKey="label"
+        radioValue="value"
+      ></my-option>
     </my-select>
   </div>
 </template>
 
 <script>
-const STATUS = [
-  { name: '全部', code: 10 },
-  { name: '优秀', code: 1 },
-  { name: '良好', code: 0 },
-  { name: '一般', code: -1 },
-  { name: '差', code: -2 },
+const groups = [
+  { label: '全部', value: 10 },
+  { label: '优秀', value: 1 },
+  { label: '良好', value: 0 },
+  { label: '一般', value: -1 },
+  { label: '差', value: -2 },
 ];
 
 export default {
@@ -24,36 +38,41 @@ export default {
       levels: [
         {
           level: 1,
-          name: '国家',
-          status: STATUS,
+          name22: '国家',
+          groups,
         },
         {
           level: 2,
-          name: '省',
-          status: STATUS,
+          name22: '省',
+          groups,
         },
         {
           level: 3,
-          name: '市',
-          status: STATUS,
+          name22: '市',
+          groups,
         },
         {
           level: 4,
-          name: '县/区',
-          status: STATUS,
+          name22: '县/区',
+          groups,
         },
         {
           level: 5,
-          name: '乡/镇',
-          status: STATUS,
+          name22: '乡/镇',
+          groups,
         },
         {
           level: 6,
-          name: '村',
-          status: STATUS,
+          name22: '村',
+          groups,
         },
       ],
     };
+  },
+  methods: {
+    handleFormatter(item) {
+      return item.name22 + 123;
+    },
   },
 };
 </script>

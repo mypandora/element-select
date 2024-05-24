@@ -23,17 +23,17 @@ npm install @mypandora/element-select
 
 <template>
   <my-select v-model="value" collapseTags placeholder="Select an option" valueKey="level">
-    <my-option v-for="item in levels" :key="item.name" :optionItem="item"></my-option>
+    <my-option v-for="item in levels" :key="item.label" :optionItem="item"></my-option>
   </my-select>
 </template>
 
 <script>
-  const STATUS = [
-    { name: '全部', code: 10 },
-    { name: '优秀', code: 1 },
-    { name: '良好', code: 0 },
-    { name: '一般', code: -1 },
-    { name: '差', code: -2 },
+  const groups = [
+    { label: '全部', value: 10 },
+    { label: '优秀', value: 1 },
+    { label: '良好', value: 0 },
+    { label: '一般', value: -1 },
+    { label: '差', value: -2 },
   ];
 
   export default {
@@ -44,32 +44,32 @@ npm install @mypandora/element-select
           {
             level: 1,
             name: '国家',
-            status: STATUS,
+            groups,
           },
           {
             level: 2,
             name: '省',
-            status: STATUS,
+            groups,
           },
           {
             level: 3,
             name: '市',
-            status: STATUS,
+            groups,
           },
           {
             level: 4,
             name: '县/区',
-            status: STATUS,
+            groups,
           },
           {
             level: 5,
             name: '乡/镇',
-            status: STATUS,
+            groups,
           },
           {
             level: 6,
             name: '村',
-            status: STATUS,
+            groups,
           },
         ],
       };
@@ -88,18 +88,18 @@ npm install @mypandora/element-select
 
 <template>
   <my-select v-model="value" collapseTags placeholder="Select an option" valueKey="level">
-    <my-option v-for="item in levels" :key="item.name" :optionItem="item"
+    <my-option v-for="item in levels" :key="item.label" :optionItem="item"
                :disabled="item.disabled"></my-option>
   </my-select>
 </template>
 
 <script>
-  const STATUS = [
-    { name: '全部', code: 10 },
-    { name: '优秀', code: 1 },
-    { name: '良好', code: 0 },
-    { name: '一般', code: -1 },
-    { name: '差', code: -2 },
+  const groups = [
+    { label: '全部', value: 10 },
+    { label: '优秀', value: 1 },
+    { label: '良好', value: 0 },
+    { label: '一般', value: -1 },
+    { label: '差', value: -2 },
   ];
   export default {
     data() {
@@ -109,33 +109,33 @@ npm install @mypandora/element-select
           {
             level: 1,
             name: '国家',
-            status: STATUS,
+            groups,
           },
           {
             level: 2,
             name: '省',
-            status: STATUS,
+            groups,
             disabled: true,
           },
           {
             level: 3,
             name: '市',
-            status: STATUS,
+            groups,
           },
           {
             level: 4,
             name: '县/区',
-            status: STATUS,
+            groups,
           },
           {
             level: 5,
             name: '乡/镇',
-            status: STATUS,
+            groups,
           },
           {
             level: 6,
             name: '村',
-            status: STATUS,
+            groups,
           },
         ],
       }
@@ -156,17 +156,17 @@ npm install @mypandora/element-select
 
 <template>
   <my-select v-model="value" collapseTags placeholder="Select an option" valueKey="level" disabled>
-    <my-option v-for="item in levels" :key="item.name" :optionItem="item"></my-option>
+    <my-option v-for="item in levels" :key="item.label" :optionItem="item"></my-option>
   </my-select>
 </template>
 
 <script>
-  const STATUS = [
-    { name: '全部', code: 10 },
-    { name: '优秀', code: 1 },
-    { name: '良好', code: 0 },
-    { name: '一般', code: -1 },
-    { name: '差', code: -2 },
+  const groups = [
+    { label: '全部', value: 10 },
+    { label: '优秀', value: 1 },
+    { label: '良好', value: 0 },
+    { label: '一般', value: -1 },
+    { label: '差', value: -2 },
   ];
 
   export default {
@@ -177,32 +177,32 @@ npm install @mypandora/element-select
           {
             level: 1,
             name: '国家',
-            status: STATUS,
+            groups,
           },
           {
             level: 2,
             name: '省',
-            status: STATUS,
+            groups,
           },
           {
             level: 3,
             name: '市',
-            status: STATUS,
+            groups,
           },
           {
             level: 4,
             name: '县/区',
-            status: STATUS,
+            groups,
           },
           {
             level: 5,
             name: '乡/镇',
-            status: STATUS,
+            groups,
           },
           {
             level: 6,
             name: '村',
-            status: STATUS,
+            groups,
           },
         ],
       }
@@ -223,17 +223,17 @@ npm install @mypandora/element-select
 
 <template>
   <my-select v-model="value" collapseTags clearable placeholder="Select an option" valueKey="level">
-    <my-option v-for="item in levels" :key="item.name" :optionItem="item"></my-option>
+    <my-option v-for="item in levels" :key="item.label" :optionItem="item"></my-option>
   </my-select>
 </template>
 
 <script>
-  const STATUS = [
-    { name: '全部', code: 10 },
-    { name: '优秀', code: 1 },
-    { name: '良好', code: 0 },
-    { name: '一般', code: -1 },
-    { name: '差', code: -2 },
+  const groups = [
+    { label: '全部', value: 10 },
+    { label: '优秀', value: 1 },
+    { label: '良好', value: 0 },
+    { label: '一般', value: -1 },
+    { label: '差', value: -2 },
   ];
 
   export default {
@@ -244,32 +244,32 @@ npm install @mypandora/element-select
           {
             level: 1,
             name: '国家',
-            status: STATUS,
+            groups,
           },
           {
             level: 2,
             name: '省',
-            status: STATUS,
+            groups,
           },
           {
             level: 3,
             name: '市',
-            status: STATUS,
+            groups,
           },
           {
             level: 4,
             name: '县/区',
-            status: STATUS,
+            groups,
           },
           {
             level: 5,
             name: '乡/镇',
-            status: STATUS,
+            groups,
           },
           {
             level: 6,
             name: '村',
-            status: STATUS,
+            groups,
           },
         ],
       }
@@ -293,6 +293,7 @@ npm install @mypandora/element-select
 | popper-class          | Select 下拉框的类名                                 | string                    | —                 | —     |
 | popper-append-to-body | 是否将弹出框插入至 body 元素。在弹出框的定位出现问题时，可将该属性设置为 false | boolean                   | -                 | true  |
 | automatic-dropdown    | 对于不可搜索的 Select，是否在输入框获得焦点后自动弹出选项菜单            | boolean                   | -                 | false |
+| formatter    | 格式化 tag 显示的内容            | function                   | -                 | - |
 
 ### Select Events
 
@@ -312,6 +313,17 @@ npm install @mypandora/element-select
 | —      | Option 组件列表   |
 | prefix | Select 组件头部内容 |
 | empty  | 无选项时的列表       |
+
+### Option Attributes
+
+| 参数      | 说明          | 类型      | 可选值                           | 默认值  |
+|---------- |-------------- |---------- |--------------------------------  |-------- |
+| optionItem | 选项数据 | object | — | — |
+| optionItemName | 选项的名称 | string | — | name |
+| radioGroupKey | 选项中单选按钮组的属性 | string | — | groups |
+| radioValue | 单选按钮的值属性 | string | — | value |
+| radioKey | 单选按钮的名称属性 | string | — | label |
+| disabled | 是否禁用该选项 | boolean | — | false |
 
 ### Methods
 
