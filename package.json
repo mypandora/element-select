@@ -31,7 +31,7 @@
     "analyzer": "vue-cli-service build",
     "lint": "vue-cli-service lint --fix src packages",
     "lint-staged": "lint-staged",
-    "release": "standard-version"
+    "release": "release-it"
   },
   "lint-staged": {
     "**/*.{js,vue}": [
@@ -44,14 +44,13 @@
     "@babel/eslint-parser": "^7.22.15",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
+    "@release-it/conventional-changelog": "^8.0.1",
     "@vue/cli-plugin-babel": "~5.0.8",
     "@vue/cli-plugin-eslint": "~5.0.8",
     "@vue/cli-service": "~5.0.8",
     "@vue/eslint-config-standard": "^8.0.1",
-    "commitizen": "^4.3.0",
     "compression-webpack-plugin": "^11.1.0",
     "core-js": "^3.33.0",
-    "cz-conventional-changelog": "^3.3.0",
     "element-ui": "^2.15.14",
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
@@ -62,7 +61,7 @@
     "husky": "^9.0.11",
     "lint-staged": "^15.2.4",
     "prettier": "^3.0.3",
-    "standard-version": "^9.5.0",
+    "release-it": "^17.3.0",
     "vue": "2.7.16",
     "vue-template-compiler": "2.7.16",
     "webpack-bundle-analyzer": "^4.9.1"
@@ -82,6 +81,67 @@
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release v${version}"
+    },
+    "github": {
+      "release": true
+    },
+    "npm": {
+      "publish": false
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "infile": "CHANGELOG.md",
+        "preset": {
+          "name": "conventionalcommits",
+          "types": [
+            {
+              "type": "chore(deps)",
+              "section": "Dependency Upgrades"
+            },
+            {
+              "type": "fix(deps)",
+              "section": "Dependency Upgrades"
+            },
+            {
+              "type": "feat",
+              "section": "Features"
+            },
+            {
+              "type": "fix",
+              "section": "Bug Fixes"
+            },
+            {
+              "type": "perf",
+              "section": "Performance Improvements"
+            },
+            {
+              "type": "revert",
+              "section": "Reverts"
+            },
+            {
+              "type": "docs",
+              "section": "Documentation"
+            },
+            {
+              "type": "refactor",
+              "section": "Code Refactoring"
+            },
+            {
+              "type": "test",
+              "section": "Tests"
+            },
+            {
+              "type": "ci",
+              "section": "Continuous Integration"
+            }
+          ]
+        }
+      }
     }
   },
   "volta": {
