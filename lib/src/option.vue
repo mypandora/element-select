@@ -21,7 +21,7 @@
   </li>
 </template>
 
-<script type="text/babel">
+<script>
 import Emitter from 'element-ui/src/mixins/emitter';
 import { getValueByPath } from 'element-ui/src/utils/util';
 
@@ -107,7 +107,7 @@ export default {
     currentLabel() {
       this.dispatch('ElSelect', 'setSelected');
     },
-    value(val, oldVal) {
+    value(val) {
       if (val == null) {
         return;
       }

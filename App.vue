@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import SelectBase from './select-base.vue';
-import SelectClear from './select-clear.vue';
-import SelectDisabled from './select-disabled.vue';
-import SelectDisabledItem from './select-disabled-item.vue';
+import SelectBase from './src/select-base.vue';
+import SelectClear from './src/select-clear.vue';
+import SelectDisabled from './src/select-disabled.vue';
+import SelectDisabledItem from './src/select-disabled-item.vue';
 
 export default {
   name: 'App',

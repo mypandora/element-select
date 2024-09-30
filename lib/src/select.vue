@@ -83,7 +83,7 @@
   </div>
 </template>
 
-<script type="text/babel">
+<script>
 import Emitter from 'element-ui/src/mixins/emitter';
 import Focus from 'element-ui/src/mixins/focus';
 import ElSelectMenu from './select-dropdown.vue';
