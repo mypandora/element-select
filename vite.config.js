@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [vue()],
   build: {
     lib: {
-      entry: './lib/src/index.js', // 你封装的组件入口
+      entry: './lib/index.js', // 你封装的组件入口
       name: 'ElementSelect', // 库名称
       fileName: 'element-select', // 输出的文件名称
     },
