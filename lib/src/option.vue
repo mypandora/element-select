@@ -8,16 +8,7 @@
       hover: hover,
     }"
   >
-    <slot>
-      <div style="display: flex; justify-content: space-between; align-items: center">
-        <label>{{ optionItem[optionItemName] }}</label>
-        <el-radio-group v-model="radio" :disabled="optionItem.disabled">
-          <el-radio v-for="item in optionItem[radioGroupKey]" :key="item[radioKey]" :label="item[radioValue]">
-            {{ item[radioKey] }}
-          </el-radio>
-        </el-radio-group>
-      </div>
-    </slot>
+    <slot :optionItem="optionItem" :radio="radio" :updateValue="updateValue"> </slot>
   </li>
 </template>
 
@@ -131,6 +122,10 @@ export default {
       if (this.disabled !== true) {
         this.dispatch('ElSelect', 'handleOptionClick', [this, true]);
       }
+    },
+
+    updateValue(value) {
+      this.radio = value;
     },
   },
 

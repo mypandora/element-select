@@ -5,19 +5,30 @@
     <my-select
       v-model="value"
       collapseTags
-      placeholder="Select an option"
       valueKey="level"
-      :formatter="handleFormatter"
+      radioValueKey="groups"
+      :radioProps="{ label: 'label', value: 'value' }"
     >
       <my-option
-        v-for="item in levels"
+        v-for="item in options"
         :key="item.label"
         :optionItem="item"
-        optionItemName="name22"
+        optionItemName="name"
         radioGroupKey="groups"
         radioKey="label"
         radioValue="value"
-      ></my-option>
+      >
+        <template #default="{ optionItem, radio, updateValue }">
+          <div style="display: flex; justify-content: space-between; align-items: center">
+            <label>{{ optionItem.name }}</label>
+            <el-radio-group :value="radio" @input="(value) => updateValue(value)" :disabled="optionItem.disabled">
+              <el-radio v-for="item in optionItem.groups" :key="item.label" :label="item.value">
+                {{ item.label }}
+              </el-radio>
+            </el-radio-group>
+          </div>
+        </template>
+      </my-option>
     </my-select>
   </div>
 </template>
@@ -35,35 +46,35 @@ export default {
   data() {
     return {
       value: null,
-      levels: [
+      options: [
         {
           level: 1,
-          name22: '国家',
+          name: '国家',
           groups,
         },
         {
           level: 2,
-          name22: '省',
+          name: '省',
           groups,
         },
         {
           level: 3,
-          name22: '市',
+          name: '市',
           groups,
         },
         {
           level: 4,
-          name22: '县/区',
+          name: '县/区',
           groups,
         },
         {
           level: 5,
-          name22: '乡/镇',
+          name: '乡/镇',
           groups,
         },
         {
           level: 6,
-          name22: '村',
+          name: '村',
           groups,
         },
       ],
@@ -71,7 +82,7 @@ export default {
   },
   methods: {
     handleFormatter(item) {
-      return item.name22 + 123;
+      return item.name + 123;
     },
   },
 };
